@@ -1,0 +1,23 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vccolombo/weather-app.git"
+  },
+  "keywords": [],
+  "author": "Víctor Cora Colombo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vccolombo/weather-app/issues"
+  },
+  "homepage": "https://github.com/vccolombo/weather-app",
+  "dependencies": {
+    "requests": "^0.3.0"
+  }
+}
