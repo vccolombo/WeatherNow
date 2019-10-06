@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/vccolombo/weather-app",
   "dependencies": {
-    "requests": "^0.3.0"
+    "request": "^2.88.0"
   }
 }
