@@ -1,15 +1,25 @@
 const geocode = require('./api/geocode');
 const weather = require('./api/weather');
 
-geocode("São Paulo", (error, data) => {
-    console.log('Error:', error);
-    console.log('Data:', data);
+const location = process.argv[2];
 
-    weather.forecast({
-        latitude: data.latitude,
-        longitude: data.longitude
-    }, (error, data) => {
-        console.log('Error:', error);
-        console.log('Data:', data);
+if (!location) {
+    console.log('No location provived.');
+} else {
+    geocode(location, (error, data) => {
+        if (error) {
+            return console.log('Error:', error);
+        }
+
+        weather.forecast({
+            latitude: data.latitude,
+            longitude: data.longitude
+        }, (error, forecastData) => {
+            if (error) {
+                return console.log('Error:', error);
+            }
+
+            console.log(`${data.location}: ${forecastData}`);
+        })
     })
-})
+}
