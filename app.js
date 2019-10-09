@@ -6,20 +6,24 @@ const location = process.argv[2];
 if (!location) {
     console.log('No location provived.');
 } else {
-    geocode(location, (error, data) => {
+    geocode(location, (error, {
+        latitude,
+        longitude,
+        location
+    }) => {
         if (error) {
             return console.log('Error:', error);
         }
 
         weather.forecast({
-            latitude: data.latitude,
-            longitude: data.longitude
+            latitude,
+            longitude
         }, (error, forecastData) => {
             if (error) {
                 return console.log('Error:', error);
             }
 
-            console.log(`${data.location}: ${forecastData}`);
+            console.log(`${location}: ${forecastData}`);
         })
     })
 }
