@@ -11,9 +11,9 @@ const forecast = ({
         json: true
     }, (error, response) => {
         if (error) {
-            callback('Unable to connect to weather services.', undefined);
+            callback('Unable to connect to weather services', undefined);
         } else if (response.body.error) {
-            callback('Unable to find location. This is probably an internal error, please try again later.', undefined);
+            callback('Unable to find location. This is probably an internal error, please try again later', undefined);
         } else {
 
             const today = response.body.daily.data[0];

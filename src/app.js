@@ -1,6 +1,10 @@
 const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
+const geocode = require('./api/geocodeAPI');
+const {
+    forecast
+} = require('./api/weatherAPI')
 
 const app = express();
 
@@ -39,15 +43,42 @@ app.get('/help', (req, res) => {
 
 app.get('/weather', (req, res) => {
     const query = req.query;
-    if (!query.location) {
+    if (!query.search) {
         return res.send({
             error: 'No location provided'
         })
     }
-    res.send({
-        forecast: "It'll be cold outside",
-        location: query.location
-    });
+
+    geocode(query.search, (error, response) => {
+        if (error) {
+            return res.send({
+                error
+            });
+        }
+
+        const {
+            latitude,
+            longitude,
+            location
+        } = response;
+
+        forecast({
+            latitude,
+            longitude
+        }, (error, forecast) => {
+            if (error) {
+                return res.send({
+                    error
+                });
+            }
+
+            res.send({
+                forecast,
+                location,
+                search: query.search
+            })
+        })
+    })
 })
 
 app.get('/help/*', (req, res) => {
