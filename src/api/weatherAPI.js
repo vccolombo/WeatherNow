@@ -1,10 +1,12 @@
 const request = require('request');
 
+const WEATHER_API_KEY = process.env.DARKSKY_API_KEY;
+
 const forecast = ({
     latitude,
     longitude
 }, callback) => {
-    const url = `https://api.darksky.net/forecast/52242d28dffba52eed99f1650ea5ba15/${latitude},${longitude}?units=si`
+    const url = `https://api.darksky.net/forecast/${WEATHER_API_KEY}/${latitude},${longitude}?units=si`
 
     request({
         url,
