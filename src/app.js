@@ -19,79 +19,70 @@ const partials_path = path.join(__dirname, '../templates/partials');
 hbs.registerPartials(partials_path);
 
 app.get('/', (req, res) => {
-    res.render('index', {
-        title: 'Weather',
-        name: 'Víctor Colombo'
-    });
+    res.render('index');
 })
 
 app.get('/about', (req, res) => {
     res.render('about', {
-        title: "About me",
-        image_src: "/img/mypicture.jpeg",
-        name: "Víctor Colombo"
+        image_src: "/img/mypicture.jpeg"
     })
 })
 
 app.get('/help', (req, res) => {
     res.render('help', {
-        title: "How can I help you?",
-        helpText: "Some useless text",
-        name: "Víctor Colombo"
+        helpText: "How can I help?"
+    })
+})
+
+app.get('/find', (req, res) => {
+    const query = req.query;
+    geocode(query.search, (error, cities) => {
+        if (error) {
+            console.log(error);
+            return res.render('index', {
+                message1: error
+            });
+        }
+
+        res.render('find', {
+            cities
+        })
     })
 })
 
 app.get('/weather', (req, res) => {
-    const query = req.query;
-    if (!query.search) {
-        return res.send({
-            error: 'No location provided'
-        })
-    }
-
-    geocode(query.search, (error, {
+    const {
         latitude,
-        longitude,
-        location
-    } = {}) => {
+        longitude
+    } = req.query;
+
+    forecast({
+        latitude,
+        longitude
+    }, (error, forecast) => {
         if (error) {
-            return res.send({
-                error
+            console.log(error);
+            return res.render('index', {
+                message1: error
             });
         }
 
-        forecast({
-            latitude,
-            longitude
-        }, (error, forecast) => {
-            if (error) {
-                return res.send({
-                    error
-                });
-            }
-
-            res.send({
-                forecast,
-                location,
-                search: query.search
-            })
-        })
+        console.log(forecast);
+        res.render('weather', {
+            forecast
+        });
     })
 })
 
 app.get('/help/*', (req, res) => {
     res.render('404', {
-        title: "404 Page Not Found",
-        text: "Help article not found",
-        name: "Víctor Colombo"
+        text: "Help article not found"
     })
 })
 
 app.get('*', (req, res) => {
     res.render('404', {
-        title: "404 Page Not Found",
-        text: "Page not found",
-        name: "Víctor Colombo"
+        text: "Page not found"
     })
 })
 

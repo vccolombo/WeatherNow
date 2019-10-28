@@ -15,9 +15,8 @@ const forecast = ({
         if (error) {
             callback('Unable to connect to weather services', undefined);
         } else if (response.body.error) {
-            callback('Unable to find location. This is probably an internal error, please try again later', undefined);
+            callback('Unable to find location. ERROR: ' + response.body.error, undefined);
         } else {
-
             const today = response.body.daily.data[0];
             const {
                 temperature,
