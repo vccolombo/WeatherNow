@@ -11,6 +11,14 @@
     <div class="main-content">
         {{>header}}
         {{>searchBar}}
+
+        <ul>
+            {{#each cities}}
+            <div><a href="/weather?latitude={{this.center.[1]}}&longitude={{this.center.[0]}}">{{ this.place_name }}</a></div>
+            {{/each}}
+        </ul>
+
+
     </div>
 
     {{>footer}}
