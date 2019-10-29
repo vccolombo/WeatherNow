@@ -13,7 +13,7 @@ const forecast = ({
         json: true
     }, (error, response) => {
         if (error) {
-            callback('Unable to connect to weather services', undefined);
+            callback('Unable to connect to weather services. ERROR: ' + error, undefined);
         } else if (response.body.error) {
             callback('Unable to find location. ERROR: ' + response.body.error, undefined);
         } else {

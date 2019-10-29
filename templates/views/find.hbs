@@ -12,11 +12,13 @@
         {{>header}}
         {{>searchBar}}
 
-        <ul>
+        <div class="centralized">
             {{#each cities}}
-            <div><a href="/weather?latitude={{this.center.[1]}}&longitude={{this.center.[0]}}">{{ this.place_name }}</a></div>
+            <div class="city"><a
+                    href="/weather?latitude={{this.center.[1]}}&longitude={{this.center.[0]}}">{{ this.place_name }}</a>
+            </div>
             {{/each}}
-        </ul>
+        </div>
 
 
     </div>
