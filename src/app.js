@@ -72,6 +72,7 @@ app.get('/weather', (req, res) => {
         res.render('weather', {
             location,
             curr_temperature: Math.round(forecast.currently.temperature),
+            curr_apparent: Math.round(forecast.currently.apparentTemperature),
             curr_icon: forecast.currently.icon,
             today: forecast.today
         });

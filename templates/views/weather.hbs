@@ -15,7 +15,26 @@
 
         <div class="centralized">
             <h2>Weather in {{location}}</h2>
-            <h2><canvas id="icon1" width="50" height="50"></canvas> {{curr_temperature}} °C</h3>
+            <div class="flex centralized">
+                <canvas id="icon1" width="80" height="80"></canvas>
+                <span class="font-70 margin-30">
+                    {{curr_temperature}}°
+                    <p>Apparent {{curr_apparent}}°</p>
+                </span>
+                
+            </div>
+            <table class="weather-items">
+                <tbody>
+                    <tr class="weather-item">
+                        <td>Test</td>
+                        <td>Teste txt</td>
+                    </tr>
+                    <tr class="weather-item">
+                        <td>Teste2</td>
+                        <td>test</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 

@@ -9,12 +9,19 @@ body {
     min-height: 100vh;
 }
 
+p {
+    font-size: 14px;
+    color: #777777;
+}
+
 .main-content {
     flex-grow: 1;
 }
 
 .centralized {
     text-align: center;
+    justify-content: center;
+    align-items: center;
     max-width: 650px;
     margin: 0 auto;
     padding: 0 16px;
@@ -30,6 +37,37 @@ body {
 
 .city a {
     color: #333333;
+}
+
+.weather-items {
+    border: 1px solid #dddddd;
+    width: 100%;
+}
+
+.weather-item td{
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #dddddd;
+}
+
+.flex {
+    display: flex;
+}
+
+.font-70 {
+    font-size: 70px;
+    color: #333333;
+}
+
+.margin-30 {
+    margin-left: 30px;
+}
+
+table {
+    max-width: 100%;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 footer {
