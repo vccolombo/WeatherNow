@@ -73,6 +73,9 @@ app.get('/weather', (req, res) => {
             location,
             curr_temperature: Math.round(forecast.currently.temperature),
             curr_apparent: Math.round(forecast.currently.apparentTemperature),
+            curr_precipitation: Math.round(forecast.currently.precipIntensity),
+            curr_wind: Math.round(forecast.currently.windSpeed),
+            curr_humidity: forecast.currently.humidity * 100,
             curr_icon: forecast.currently.icon,
             today: forecast.today
         });
