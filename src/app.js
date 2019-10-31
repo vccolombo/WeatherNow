@@ -5,6 +5,7 @@ const geocode = require('./api/geocodeAPI');
 const {
     forecast
 } = require('./api/weatherAPI')
+const weather_icons = require('./weather_icons');
 
 const app = express();
 
@@ -67,8 +68,9 @@ app.get('/weather', (req, res) => {
                 message1: error
             });
         }
-
+        
         console.log(forecast);
+        const icon = weather_icons[forecast.currently.icon];
         res.render('weather', {
             location,
             curr_temperature: Math.round(forecast.currently.temperature),
@@ -76,7 +78,7 @@ app.get('/weather', (req, res) => {
             curr_precipitation: Math.round(forecast.currently.precipIntensity),
             curr_wind: Math.round(forecast.currently.windSpeed),
             curr_humidity: forecast.currently.humidity * 100,
-            curr_icon: `/img/${forecast.currently.icon}.svg`,
+            curr_icon: icon ? `/img/${icon}` : null,
             today: forecast.today
         });
     })
