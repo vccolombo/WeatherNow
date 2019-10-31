@@ -16,7 +16,9 @@
         <div class="centralized">
             <h2>Weather in {{location}}</h2>
             <div class="flex centralized">
-                <img id="icon1" width="80" height="80" src={{curr_icon}}></img>
+                {{#if curr_icon}}
+                    <img id="icon1" width="80" height="80" src={{curr_icon}}></img>
+                {{/if}}
                 <span class="font-70 margin-30">
                     {{curr_temperature}}°
                     <p>Apparent {{curr_apparent}}°</p>
