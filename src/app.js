@@ -53,7 +53,8 @@ app.get('/find', (req, res) => {
 app.get('/weather', (req, res) => {
     const {
         latitude,
-        longitude
+        longitude,
+        location
     } = req.query;
 
     forecast({
@@ -69,7 +70,10 @@ app.get('/weather', (req, res) => {
 
         console.log(forecast);
         res.render('weather', {
-            forecast
+            location,
+            curr_temperature: Math.round(forecast.currently.temperature),
+            curr_icon: forecast.currently.icon,
+            today: forecast.today
         });
     })
 })

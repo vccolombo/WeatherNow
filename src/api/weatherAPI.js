@@ -17,13 +17,11 @@ const forecast = ({
         } else if (response.body.error) {
             callback('Unable to find location. ERROR: ' + response.body.error, undefined);
         } else {
-            const today = response.body.daily.data[0];
-            const {
-                temperature,
-                precipProbability: rainProbability
-            } = response.body.currently;
-
-            callback(undefined, `${today.summary} It is currently ${temperature} degrees out. There is a ${rainProbability}% chance of rain.`);
+            console.log(response.body)
+            callback(undefined, {
+                currently: response.body.currently,
+                today: response.body.daily.data[0]
+            });
         }
     })
 }

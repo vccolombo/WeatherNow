@@ -5,6 +5,7 @@
     <title>Weather</title>
     <link rel="icon" href="/img/weather.png">
     <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.min.js"></script>
 </head>
 
 <body>
@@ -12,7 +13,10 @@
         {{>header}}
         {{>searchBar}}
 
-        <div class="centralized">{{forecast}}</div>
+        <div class="centralized">
+            <h2>Weather in {{location}}</h2>
+            <h2><canvas id="icon1" width="50" height="50"></canvas> {{curr_temperature}} °C</h3>
+        </div>
     </div>
 
     {{>footer}}
