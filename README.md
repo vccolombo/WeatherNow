@@ -48,5 +48,11 @@ Give a ⭐️ if you liked it!
 Copyright © 2019 [Víctor Cora Colombo](https://github.com/vccolombo).<br />
 This project is [MIT](https://github.com/vccolombo/weathe) licensed.
 
+## Made with
+
+[Dark Sky](https://darksky.net/poweredby/)
+[Mapbox](https://www.mapbox.com/)
+[weather-icons](https://github.com/erikflowers/weather-icons)
+
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
