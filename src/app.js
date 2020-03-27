@@ -70,9 +70,11 @@ app.get('/weather', (req, res) => {
         }
         
         console.log(forecast);
+        const summary = forecast.currently.summary;
         const icon = weather_icons[forecast.currently.icon];
         res.render('weather', {
             location,
+            summary,
             curr_temperature: Math.round(forecast.currently.temperature),
             curr_apparent: Math.round(forecast.currently.apparentTemperature),
             curr_precipitation: Math.round(forecast.currently.precipIntensity),

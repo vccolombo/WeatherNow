@@ -15,9 +15,10 @@
 
         <div class="centralized">
             <h2>Weather in {{location}}</h2>
-            <div class="flex centralized">
+            <h3>{{summary}}</h3>
+            <div class="flex centralized" style="margin-bottom: 16px;">
                 {{#if curr_icon}}
-                    <img id="icon1" width="80" height="80" src={{curr_icon}}></img>
+                    <img id="icon1" width="120" height="120" src={{curr_icon}}></img>
                 {{/if}}
                 <span class="font-70 margin-30">
                     {{curr_temperature}}°
