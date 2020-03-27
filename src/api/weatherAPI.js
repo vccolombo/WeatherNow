@@ -23,7 +23,7 @@ const forecast = ({
                 today: response.body.daily.data[0]
             });
         }
-    })
+    });
 }
 
 module.exports = {

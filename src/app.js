@@ -21,19 +21,19 @@ hbs.registerPartials(partials_path);
 
 app.get('/', (req, res) => {
     res.render('index');
-})
+});
 
 app.get('/about', (req, res) => {
     res.render('about', {
         image_src: "/img/mypicture.jpeg"
-    })
-})
+    });
+});
 
 app.get('/help', (req, res) => {
     res.render('help', {
         helpText: "How can I help?"
-    })
-})
+    });
+});
 
 app.get('/find', (req, res) => {
     const query = req.query;
@@ -47,9 +47,9 @@ app.get('/find', (req, res) => {
 
         res.render('find', {
             cities
-        })
-    })
-})
+        });
+    });
+});
 
 app.get('/weather', (req, res) => {
     const {
@@ -83,20 +83,20 @@ app.get('/weather', (req, res) => {
             curr_icon: icon ? `/img/${icon}` : null,
             today: forecast.today
         });
-    })
-})
+    });
+});
 
 app.get('/help/*', (req, res) => {
     res.render('404', {
         text: "Help article not found"
-    })
-})
+    });
+});
 
 app.get('*', (req, res) => {
     res.render('404', {
         text: "Page not found"
-    })
-})
+    });
+});
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
