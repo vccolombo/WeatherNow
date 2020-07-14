@@ -1,6 +1,6 @@
 {
-  "name": "weather-site",
-  "version": "1.2.0",
+  "name": "weathernow",
+  "version": "2.0.0",
   "description": "NodeJS site to get the forecast for any location",
   "main": "app.js",
   "scripts": {
@@ -10,18 +10,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vccolombo/weather-site.git"
+    "url": "git+https://github.com/vccolombo/WeatherNow"
   },
   "keywords": [],
   "author": "Víctor Cora Colombo",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vccolombo/weather-site/issues"
+    "url": "https://github.com/vccolombo/WeatherNow/issues"
   },
   "homepage": "https://vccolombo-weather-site.herokuapp.com/",
   "dependencies": {
     "express": "^4.17.1",
-    "hbs": "^4.0.6",
+    "hbs": "^4.1.1",
     "request": "^2.88.0"
   },
   "devDependencies": {

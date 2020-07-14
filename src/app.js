@@ -24,15 +24,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/about', (req, res) => {
-    res.render('about', {
-        image_src: "/img/mypicture.jpeg"
-    });
-});
-
-app.get('/help', (req, res) => {
-    res.render('help', {
-        helpText: "How can I help?"
-    });
+    res.render('about');
 });
 
 app.get('/find', (req, res) => {
