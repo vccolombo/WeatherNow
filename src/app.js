@@ -1,10 +1,9 @@
 const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
+
 const geocode = require('./api/geocodeAPI');
-const {
-    forecast
-} = require('./api/weatherAPI')
+const { forecast } = require('./api/weatherAPI')
 const weather_icons = require('./weather_icons');
 
 const app = express();

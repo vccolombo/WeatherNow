@@ -1,6 +1,6 @@
 {
   "name": "weathernow",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "NodeJS site to get the forecast for any location",
   "main": "app.js",
   "scripts": {
